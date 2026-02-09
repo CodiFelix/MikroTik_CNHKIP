@@ -87,6 +87,7 @@ sed -i 's/$/&\ list=CN timeout=0 comment=CN } on-error={}/g' ${cn_ipv4_list_file
 sed -i '1 i/log info "Loading CN ipv4 address list"' ${cn_ipv4_list_filename}
 sed -i '2 i/ip firewall address-list remove [find list=CN]' ${cn_ipv4_list_filename}
 sed -i '3 i/ip firewall address-list' ${cn_ipv4_list_filename}
+sed -i '$a\:log info "Complete CN_IPv4_LIST !!"' ${cn_ipv4_list_filename}
 
 # IPv4-CN Routing Rule 地址表
 sed -i 's/^/:do { add dst-address=&/g' ${cn_ipv4_route_filename}
@@ -95,6 +96,7 @@ sed -i '1 i/log info "Loading CN ipv4 address routing"' ${cn_ipv4_route_filename
 sed -i '2 i/routing rule remove [find table=CN]' ${cn_ipv4_route_filename}
 sed -i '3 i/routing table add name=CN fib disabled=no' ${cn_ipv4_route_filename}
 sed -i '4 i/routing rule' ${cn_ipv4_route_filename}
+sed -i '$a\:log info "Complete CN_IPv4_ROUTE !!"' ${cn_ipv4_route_filename}
 
 # IPv6-CN Firewall Address-list 地址表
 sed -i 's/^/:do { add address=&/g' ${cn_ipv6_list_filename}
@@ -102,25 +104,29 @@ sed -i 's/$/&\ list=CN timeout=0 comment=CN } on-error={}/g' ${cn_ipv6_list_file
 sed -i '1 i/log info "Loading CN ipv6 address list"' ${cn_ipv6_list_filename}
 sed -i '2 i/ipv6 firewall address-list remove [find list=CN]' ${cn_ipv6_list_filename}
 sed -i '3 i/ipv6 firewall address-list' ${cn_ipv6_list_filename}
+sed -i '$a\:log info "Complete CN_IPv6_LIST !!"' ${cn_ipv6_list_filename}
 
 # IPv4-HK Firewall Address-list 地址表
 sed -i 's/^/:do { add address=&/g' ${cn_ipv4_hk_list_filename}
-sed -i 's/$/&\ list=CN timeout=0 comment=CN } on-error={}/g' ${cn_ipv4_hk_list_filename}
-sed -i '1 i/log info "Loading CN-HK ipv4 address list"' ${cn_ipv4_hk_list_filename}
-sed -i '2 i/ip firewall address-list remove [find list=CN]' ${cn_ipv4_hk_list_filename}
+sed -i 's/$/&\ list=HK timeout=0 comment=HK } on-error={}/g' ${cn_ipv4_hk_list_filename}
+sed -i '1 i/log info "Loading HK ipv4 address list"' ${cn_ipv4_hk_list_filename}
+sed -i '2 i/ip firewall address-list remove [find list=HK]' ${cn_ipv4_hk_list_filename}
 sed -i '3 i/ip firewall address-list' ${cn_ipv4_hk_list_filename}
+sed -i '$a\:log info "Complete HK_IPv4_LIST !!"' ${cn_ipv4_hk_list_filename}
 
 # IPv4-HK Routing Rule 地址表
 sed -i 's/^/:do { add dst-address=&/g' ${cn_ipv4_hk_route_filename}
-sed -i 's/$/&\ action=lookup disabled=no table=CN comment=CN } on-error={}/g' ${cn_ipv4_hk_route_filename}
-sed -i '1 i/log info "Loading CN-HK ipv4 address routing"' ${cn_ipv4_hk_route_filename}
-sed -i '2 i/routing rule remove [find table=CN]' ${cn_ipv4_hk_route_filename}
-sed -i '3 i/routing table add name=CN fib disabled=no' ${cn_ipv4_hk_route_filename}
+sed -i 's/$/&\ action=lookup disabled=no table=HK comment=HK } on-error={}/g' ${cn_ipv4_hk_route_filename}
+sed -i '1 i/log info "Loading HK ipv4 address routing"' ${cn_ipv4_hk_route_filename}
+sed -i '2 i/routing rule remove [find table=HK]' ${cn_ipv4_hk_route_filename}
+sed -i '3 i/routing table add name=HK fib disabled=no' ${cn_ipv4_hk_route_filename}
 sed -i '4 i/routing rule' ${cn_ipv4_hk_route_filename}
+sed -i '$a\:log info "Complete HK_IPv4_ROUTE !!"' ${cn_ipv4_hk_route_filename}
 
 # IPv6-HK Firewall Address-list 地址表
 sed -i 's/^/:do { add address=&/g' ${cn_ipv6_hk_list_filename}
-sed -i 's/$/&\ list=CN timeout=0 comment=CN } on-error={}/g' ${cn_ipv6_hk_list_filename}
-sed -i '1 i/log info "Loading CN-HK ipv6 address list"' ${cn_ipv6_hk_list_filename}
-sed -i '2 i/ipv6 firewall address-list remove [find list=CN]' ${cn_ipv6_hk_list_filename}
+sed -i 's/$/&\ list=HK timeout=0 comment=HK } on-error={}/g' ${cn_ipv6_hk_list_filename}
+sed -i '1 i/log info "Loading HK ipv6 address list"' ${cn_ipv6_hk_list_filename}
+sed -i '2 i/ipv6 firewall address-list remove [find list=HK]' ${cn_ipv6_hk_list_filename}
 sed -i '3 i/ipv6 firewall address-list' ${cn_ipv6_hk_list_filename}
+sed -i '$a\:log info "Complete HK_IPv6_LIST !!"' ${cn_ipv6_hk_list_filename}
