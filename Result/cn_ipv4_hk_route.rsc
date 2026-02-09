@@ -1,6 +1,5 @@
 /log info "Loading CN-HK ipv4 address routing"
 /routing rule remove [find table=CN]
-/routing table remove [find name=CN]
 /routing table add name=CN fib disabled=no
 /routing rule
 :do { add dst-address=1.36.0.0/16 action=lookup disabled=no table=CN comment=CN } on-error={}
