@@ -8792,3 +8792,4 @@
 :do { add address=223.255.0.0/17 list=CN timeout=0 comment=CN } on-error={}
 :do { add address=223.255.236.0/22 list=CN timeout=0 comment=CN } on-error={}
 :do { add address=223.255.252.0/23 list=CN timeout=0 comment=CN } on-error={}
+:log info "Complete CN_IPv4_LIST !!"
