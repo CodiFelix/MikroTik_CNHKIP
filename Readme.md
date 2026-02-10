@@ -36,7 +36,7 @@
 
 ### 🔄 自动化更新（定时任务）
 
-创建一个 MikroTik 定时任务，每月自动更新地址列表：
+创建一个 MikroTik 定时任务，每周自动更新地址列表：
 
 ```routeros
 /system scheduler
