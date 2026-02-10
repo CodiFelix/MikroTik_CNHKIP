@@ -25,7 +25,7 @@
 /tool/fetch url="https://raw.githubusercontent.com/ITinflect-Ctrl/MikroTik_CNHKIP/main/Result/cn_ipv4_hk_route.rsc" mode=https dst-path=cn_ipv4_hk_route.rsc
 
 # 等待下载完成后，导入所有脚本
-:delay 5s
+:delay 15s
 /import cn_ipv4_list.rsc
 /import cn_ipv6_list.rsc
 /import cn_ipv4_hk_list.rsc
