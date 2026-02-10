@@ -2041,24 +2041,4 @@
 :do { add address=240f:4000::/24 list=CN timeout=0 comment=CN } on-error={}
 :do { add address=240f:8000::/24 list=CN timeout=0 comment=CN } on-error={}
 :do { add address=240f:c000::/24 list=CN timeout=0 comment=CN } on-error={}
-:do { add address=240e::/24 list=CN timeout=0 comment=CN } on-error={}
-:do { add address=240e:100::/24 list=CN timeout=0 comment=CN } on-error={}
-:do { add address=240e:200::/23 list=CN timeout=0 comment=CN } on-error={}
-:do { add address=240e:400::/22 list=CN timeout=0 comment=CN } on-error={}
-:do { add address=240e:800::/21 list=CN timeout=0 comment=CN } on-error={}
-:do { add address=240e:1000::/20 list=CN timeout=0 comment=CN } on-error={}
-:do { add address=240e:2000::/19 list=CN timeout=0 comment=CN } on-error={}
-:do { add address=240f:4000::/24 list=CN timeout=0 comment=CN } on-error={}
-:do { add address=240f:8000::/24 list=CN timeout=0 comment=CN } on-error={}
-:do { add address=240f:c000::/24 list=CN timeout=0 comment=CN } on-error={}
-:do { add address=240e::/24 list=CN timeout=0 comment=CN } on-error={}
-:do { add address=240e:100::/24 list=CN timeout=0 comment=CN } on-error={}
-:do { add address=240e:200::/23 list=CN timeout=0 comment=CN } on-error={}
-:do { add address=240e:400::/22 list=CN timeout=0 comment=CN } on-error={}
-:do { add address=240e:800::/21 list=CN timeout=0 comment=CN } on-error={}
-:do { add address=240e:1000::/20 list=CN timeout=0 comment=CN } on-error={}
-:do { add address=240e:2000::/19 list=CN timeout=0 comment=CN } on-error={}
-:do { add address=240f:4000::/24 list=CN timeout=0 comment=CN } on-error={}
-:do { add address=240f:8000::/24 list=CN timeout=0 comment=CN } on-error={}
-:do { add address=240f:c000::/24 list=CN timeout=0 comment=CN } on-error={}
 :log info "Complete CN_IPv6_LIST !!"
