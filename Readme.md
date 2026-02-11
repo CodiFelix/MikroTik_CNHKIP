@@ -235,13 +235,31 @@ A: 使用 `/log print` 查看日志，使用 `/ip firewall address-list print co
 
 欢迎提交 Issue 和 Pull Request！
 
-**维护者**: [@CodiFelix](https://github.com/CodiFelix)  
-**项目地址**: https://github.com/CodiFelix/MikroTik_CNHKIP  
-**许可证**: MIT License
+**项目维护**：
+- 报告问题：提交 Issue 描述遇到的问题
+- 改进建议：提交 PR 或在 Discussions 讨论
+- 分享经验：Star 项目并分享给需要的人
 
-如果这个项目对您有帮助，请给个 Star ⭐！
+**联系方式**：
+- GitHub Issues: [提交问题](https://github.com/CodiFelix/MikroTik_CNHKIP/issues)
+- Email: Codifelix@FelixBlaze.com
 
 ---
 
-**最后更新**: 2026年2月  
-**版本**: 1.0.0
+## ⚖️ 许可证 (License)
+
+本项目采用 [MIT License](LICENSE) 授权。
+
+Copyright (c) 2026 FelixBlaze
+
+> **注意：** 本项目仅供学习和研究使用，请在法律允许的范围内使用。作者不对任何因误用、非法使用或操作不当导致的后果承担法律责任。
+
+---
+
+如果这个项目对您有帮助，请给个 Star ⭐！
+
+**最后更新**: 2026年2月10日  
+**脚本版本**: 2.0.0  
+**测试环境**: RouterOS v7.13  
+**作者**: CodiFelix
+**仓库**: https://github.com/CodiFelix/MikroTik_CNHKIP
