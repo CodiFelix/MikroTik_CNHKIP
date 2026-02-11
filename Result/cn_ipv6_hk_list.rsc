@@ -245,6 +245,7 @@
 :do { add address=2001:df6:a780::/48 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=2001:df6:a980::/48 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=2001:df6:aa80::/48 list=HK timeout=0 comment=HK } on-error={}
+:do { add address=2001:df6:b2c0::/48 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=2001:df6:bc00::/48 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=2001:df6:cb80::/48 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=2001:df6:d000::/48 list=HK timeout=0 comment=HK } on-error={}
