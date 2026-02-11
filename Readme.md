@@ -9,7 +9,7 @@
 ### 📥 导入中国大陆 IPv4 地址列表
 
 ```routeros
-/tool/fetch url="https://raw.githubusercontent.com/ITinflect-Ctrl/MikroTik_CNHKIP/main/Result/cn_ipv4_list.rsc" mode=https dst-path=cn_ipv4_list.rsc
+/tool/fetch url="https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv4_list.rsc" mode=https dst-path=cn_ipv4_list.rsc
 /import cn_ipv4_list.rsc
 ```
 
@@ -17,12 +17,12 @@
 
 ```routeros
 # 下载所有脚本文件
-/tool/fetch url="https://raw.githubusercontent.com/ITinflect-Ctrl/MikroTik_CNHKIP/main/Result/cn_ipv4_list.rsc" mode=https dst-path=cn_ipv4_list.rsc
-/tool/fetch url="https://raw.githubusercontent.com/ITinflect-Ctrl/MikroTik_CNHKIP/main/Result/cn_ipv6_list.rsc" mode=https dst-path=cn_ipv6_list.rsc
-/tool/fetch url="https://raw.githubusercontent.com/ITinflect-Ctrl/MikroTik_CNHKIP/main/Result/cn_ipv4_hk_list.rsc" mode=https dst-path=cn_ipv4_hk_list.rsc
-/tool/fetch url="https://raw.githubusercontent.com/ITinflect-Ctrl/MikroTik_CNHKIP/main/Result/cn_ipv6_hk_list.rsc" mode=https dst-path=cn_ipv6_hk_list.rsc
-/tool/fetch url="https://raw.githubusercontent.com/ITinflect-Ctrl/MikroTik_CNHKIP/main/Result/cn_ipv4_route.rsc" mode=https dst-path=cn_ipv4_route.rsc
-/tool/fetch url="https://raw.githubusercontent.com/ITinflect-Ctrl/MikroTik_CNHKIP/main/Result/cn_ipv4_hk_route.rsc" mode=https dst-path=cn_ipv4_hk_route.rsc
+/tool/fetch url="https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv4_list.rsc" mode=https dst-path=cn_ipv4_list.rsc
+/tool/fetch url="https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv6_list.rsc" mode=https dst-path=cn_ipv6_list.rsc
+/tool/fetch url="https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv4_hk_list.rsc" mode=https dst-path=cn_ipv4_hk_list.rsc
+/tool/fetch url="https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv6_hk_list.rsc" mode=https dst-path=cn_ipv6_hk_list.rsc
+/tool/fetch url="https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv4_route.rsc" mode=https dst-path=cn_ipv4_route.rsc
+/tool/fetch url="https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv4_hk_route.rsc" mode=https dst-path=cn_ipv4_hk_route.rsc
 
 # 等待下载完成后，导入所有脚本
 :delay 15s
@@ -41,7 +41,7 @@
 ```routeros
 /system scheduler
 add name=update-cn-ip-list interval=7d start-date=2026-02-01 start-time=03:00:00 \
-on-event="/tool/fetch url=\"https://raw.githubusercontent.com/ITinflect-Ctrl/MikroTik_CNHKIP/main/Result/cn_ipv4_list.rsc\" mode=https dst-path=cn_ipv4_list.rsc\r\
+on-event="/tool/fetch url=\"https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv4_list.rsc\" mode=https dst-path=cn_ipv4_list.rsc\r\
 \n:delay 15s\r\
 \n/import cn_ipv4_list.rsc\r\
 \n/log info \"CN IP list updated successfully\""
@@ -87,7 +87,7 @@ on-event="/tool/fetch url=\"https://raw.githubusercontent.com/ITinflect-Ctrl/Mik
 
 ```bash
 # 1. 克隆项目
-git clone https://github.com/ITinflect-Ctrl/MikroTik_CNHKIP.git
+git clone https://github.com/CodiFelix/MikroTik_CNHKIP.git
 cd MikroTik_CNHKIP
 
 # 2. 创建结果目录
@@ -235,8 +235,8 @@ A: 使用 `/log print` 查看日志，使用 `/ip firewall address-list print co
 
 欢迎提交 Issue 和 Pull Request！
 
-**维护者**: [@ITinflect-Ctrl](https://github.com/ITinflect-Ctrl)  
-**项目地址**: https://github.com/ITinflect-Ctrl/MikroTik_CNHKIP  
+**维护者**: [@CodiFelix](https://github.com/CodiFelix)  
+**项目地址**: https://github.com/CodiFelix/MikroTik_CNHKIP  
 **许可证**: MIT License
 
 如果这个项目对您有帮助，请给个 Star ⭐！
