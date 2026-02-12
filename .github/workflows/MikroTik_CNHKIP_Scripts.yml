@@ -31,6 +31,4 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add Result/
           git diff --staged --quiet || git commit -m "🤖 Auto update IP list - $(date +'%Y-%m-%d %H:%M:%S')"
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/CodiFelix/MikroTik_CNHKIP_Scripts.git HEAD:main
