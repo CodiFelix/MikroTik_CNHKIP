@@ -436,7 +436,7 @@
 :do { add dst-address=103.4.112.0/23 action=lookup disabled=no table=HK comment=HK } on-error={}
 :do { add dst-address=103.4.244.0/22 action=lookup disabled=no table=HK comment=HK } on-error={}
 :do { add dst-address=103.5.12.0/22 action=lookup disabled=no table=HK comment=HK } on-error={}
-:do { add dst-address=103.5.42.0/23 action=lookup disabled=no table=HK comment=HK } on-error={}
+:do { add dst-address=103.5.40.0/22 action=lookup disabled=no table=HK comment=HK } on-error={}
 :do { add dst-address=103.5.79.0/24 action=lookup disabled=no table=HK comment=HK } on-error={}
 :do { add dst-address=103.5.220.0/22 action=lookup disabled=no table=HK comment=HK } on-error={}
 :do { add dst-address=103.6.4.0/22 action=lookup disabled=no table=HK comment=HK } on-error={}

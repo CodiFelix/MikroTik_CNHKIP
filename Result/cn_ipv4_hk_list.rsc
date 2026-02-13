@@ -435,7 +435,7 @@
 :do { add address=103.4.112.0/23 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=103.4.244.0/22 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=103.5.12.0/22 list=HK timeout=0 comment=HK } on-error={}
-:do { add address=103.5.42.0/23 list=HK timeout=0 comment=HK } on-error={}
+:do { add address=103.5.40.0/22 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=103.5.79.0/24 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=103.5.220.0/22 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=103.6.4.0/22 list=HK timeout=0 comment=HK } on-error={}
