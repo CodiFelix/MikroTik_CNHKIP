@@ -173,7 +173,6 @@
 :do { add address=2001:df3:cd00::/48 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=2001:df3:cd80::/48 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=2001:df3:cdc0::/48 list=HK timeout=0 comment=HK } on-error={}
-:do { add address=2001:df3:d200::/48 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=2001:df3:f740::/48 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=2001:df3:fc00::/48 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=2001:df4:180::/48 list=HK timeout=0 comment=HK } on-error={}
