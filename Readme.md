@@ -201,10 +201,6 @@ python convert_ipmask.py
 # 执行结果后将新格式会保存到 ipmask.txt 文件中
 ```
 
-```
-
-```
-
 ## 📊 性能参考
 
 | 设备型号 | RAM | 导入时间 | 状态 |
