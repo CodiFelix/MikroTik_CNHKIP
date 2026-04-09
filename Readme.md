@@ -34,6 +34,7 @@
 
 ```routeros
 /tool/fetch url="https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv4_list.rsc" mode=https dst-path=cn_ipv4_list.rsc
+:delay 15s
 /import cn_ipv4_list.rsc
 ```
 
@@ -100,13 +101,18 @@
 ```routeros
 /system scheduler
 add name=update-cn-ip-list interval=7d start-date=2026-02-01 start-time=03:00:00 \
-on-event=":local MIRROR_PREFIX \"https://ghproxy.com/\"\
+on-event=":local MIRROR_PREFIX \"https://ghproxy.com/\"
+\
 :local URL (
-$MIRROR_PREFIX . \"https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv4_list.rsc\")\
+$MIRROR_PREFIX . \"https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv4_list.rsc\")
+\
 /tool/fetch url=
-$URL mode=https dst-path=cn_ipv4_list.rsc\
-:delay 15s\
-/import cn_ipv4_list.rsc\
+$URL mode=https dst-path=cn_ipv4_list.rsc
+\
+:delay 15s
+\
+/import cn_ipv4_list.rsc
+\
 /log info \"CN IP list updated successfully\""
 ```
 
