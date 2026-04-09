@@ -8,14 +8,46 @@
 
 如果您的 MikroTik 路由器可以直接访问 GitHub，可以使用以下命令直接下载并导入脚本，**无需手动生成和上传文件**。
 
+> 说明：README 里使用的 `raw.githubusercontent.com` 域名并未更换，但在部分网络环境（尤其是中国大陆）可能无法访问。
+> 如果你发现 `/tool/fetch` 下载失败，请改用下面提供的**备用镜像下载方式**，或在可访问 GitHub 的网络环境中执行。
+
+### ✅ 方式 1：使用 GitHub Raw（默认）
+
+- 基础地址：`https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/`
+
+### 🪞 方式 2：使用镜像前缀（raw 访问受限时）
+
+把下面的 `MIRROR_PREFIX` 替换成你可用的镜像前缀（示例：`https://ghproxy.com/` 或你的自建镜像前缀）。
+
+- 镜像前缀：`MIRROR_PREFIX` + `https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/文件名`
+
+#### 如何判断下载是否成功？
+
+- 执行 `/tool/fetch` 后，用 `/file print where name~"\.rsc$"` 查看文件是否下载到路由器
+- 如失败，`/log print` 通常会看到 DNS/超时/证书等错误原因
+
+---
+
 ### 📥 导入中国大陆 IPv4 地址列表
+
+#### GitHub Raw（默认）
 
 ```routeros
 /tool/fetch url="https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv4_list.rsc" mode=https dst-path=cn_ipv4_list.rsc
 /import cn_ipv4_list.rsc
 ```
 
+#### 镜像前缀（raw 不可用时）
+
+```routeros
+:local MIRROR_PREFIX "https://ghproxy.com/"
+/tool/fetch url=($MIRROR_PREFIX . "https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv4_list.rsc") mode=https dst-path=cn_ipv4_list.rsc
+/import cn_ipv4_list.rsc
+```
+
 ### 📦 导入所有列表（一键执行）
+
+#### GitHub Raw（默认）
 
 ```routeros
 # 下载所有脚本文件
@@ -36,17 +68,46 @@
 /import cn_ipv4_hk_route.rsc
 ```
 
+#### 镜像前缀（raw 不可用时）
+
+```routeros
+:local MIRROR_PREFIX "https://ghproxy.com/"
+
+# 下载所有脚本文件（通过镜像前缀）
+/tool/fetch url=($MIRROR_PREFIX . "https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv4_list.rsc") mode=https dst-path=cn_ipv4_list.rsc
+/tool/fetch url=($MIRROR_PREFIX . "https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv6_list.rsc") mode=https dst-path=cn_ipv6_list.rsc
+/tool/fetch url=($MIRROR_PREFIX . "https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv4_hk_list.rsc") mode=https dst-path=cn_ipv4_hk_list.rsc
+/tool/fetch url=($MIRROR_PREFIX . "https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv6_hk_list.rsc") mode=https dst-path=cn_ipv6_hk_list.rsc
+/tool/fetch url=($MIRROR_PREFIX . "https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv4_route.rsc") mode=https dst-path=cn_ipv4_route.rsc
+/tool/fetch url=($MIRROR_PREFIX . "https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv4_hk_route.rsc") mode=https dst-path=cn_ipv4_hk_route.rsc
+
+# 等待下载完成后，导入所有脚本
+:delay 15s
+/import cn_ipv4_list.rsc
+/import cn_ipv6_list.rsc
+/import cn_ipv4_hk_list.rsc
+/import cn_ipv6_hk_list.rsc
+/import cn_ipv4_route.rsc
+/import cn_ipv4_hk_route.rsc
+```
+
 ### 🔄 自动化更新（定时任务）
 
 创建一个 MikroTik 定时任务，每周自动更新地址列表：
 
+> 注意：如果你的网络环境无法访问 raw，请把下面 `MIRROR_PREFIX` 改为可用的镜像前缀；若不需要镜像，保持空字符串即可。
+
 ```routeros
 /system scheduler
 add name=update-cn-ip-list interval=7d start-date=2026-02-01 start-time=03:00:00 \
-on-event="/tool/fetch url=\"https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv4_list.rsc\" mode=https dst-path=cn_ipv4_list.rsc\r\
-\n:delay 15s\r\
-\n/import cn_ipv4_list.rsc\r\
-\n/log info \"CN IP list updated successfully\""
+on-event=":local MIRROR_PREFIX \"https://ghproxy.com/\"\
+:local URL (
+$MIRROR_PREFIX . \"https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv4_list.rsc\")\
+/tool/fetch url=
+$URL mode=https dst-path=cn_ipv4_list.rsc\
+:delay 15s\
+/import cn_ipv4_list.rsc\
+/log info \"CN IP list updated successfully\""
 ```
 
 ### 📝 使用说明
@@ -58,7 +119,7 @@ on-event="/tool/fetch url=\"https://raw.githubusercontent.com/CodiFelix/MikroTik
 
 ### ⚠️ 注意事项
 
-- MikroTik 路由器需要能够访问 GitHub（raw.githubusercontent.com）
+- MikroTik 路由器需要能够访问 GitHub（raw.githubusercontent.com）或你配置的镜像前缀
 - 首次使用前请确保 GitHub 仓库中已有最新的 `.rsc` 文件
 - 如果 GitHub 访问受限，请使用下方的手动生成方式
 - 建议先在测试设备上验证后再应用到生产环境
@@ -67,7 +128,7 @@ on-event="/tool/fetch url=\"https://raw.githubusercontent.com/CodiFelix/MikroTik
 
 ## 📋 项目简介
 
-本工具从 APNIC（亚太互联网络信息中心）自动下载最新的 IP 地址分配数据，提取中国大陆和香港的 IPv4 和 IPv6 地址段，并生成可直接在 MikroTik RouterOS 中导入使用的 `.rsc` 脚本文件。
+本工具从 APNIC（亚太互联网络信息中心）自动下载最新的 IP 地址分配数据，提取中国大陆和香港的 IPv4 和 IPv6 地址段，并生成可直接在 MikroTik RouterOS 使用的防火墙地址列表和路由规则脚本。
 
 **主要功能**：
 - ✅ 支持中国大陆(CN)和香港(HK)独立列表
@@ -213,7 +274,6 @@ python convert_ipmask.py
 ---
 
 ## ⚠️ 注意事项
-
 - **定期更新**：IP 地址分配会变化，建议每月更新一次
 - **系统资源**：完整 CN 列表约 8000+ 条目，低配设备可能响应缓慢
 - **备份配置**：导入前务必使用 `/export file=backup` 备份配置
@@ -269,8 +329,8 @@ Copyright (c) 2026 FelixBlaze
 
 如果这个项目对您有帮助，请给个 Star ⭐！
 
-**最后更新**: 2026年2月10日  
+**最后更新**: 2026年4月9日  
 **脚本版本**: 2.0.0  
 **测试环境**: RouterOS v7.13  
-**作者**: CodiFelix
+**作者**: CodiFelix  
 **仓库**: https://github.com/CodiFelix/MikroTik_CNHKIP
