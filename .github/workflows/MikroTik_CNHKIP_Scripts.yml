@@ -21,6 +21,12 @@ jobs:
         with:
           fetch-depth: 0
 
+      # 关键修复点：在产生任何文件变更前先同步，避免 rebase 因工作区脏而失败
+      - name: Sync with remote (rebase)
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        run: |
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+
       - name: Make scripts executable
         run: chmod +x ./allcn-ip-list.sh
 
@@ -36,13 +42,11 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
 
+          # 只提交 Result/ 目录（保持你原来的意图）
           git add Result/
 
           # 没有变更就退出
           git diff --staged --quiet && exit 0
 
           git commit -m "Auto update IP list - $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
-
-          # 先同步再推送，避免被拒绝
-          git pull --rebase origin "${GITHUB_REF_NAME}"
           git push origin HEAD:"${GITHUB_REF_NAME}"
