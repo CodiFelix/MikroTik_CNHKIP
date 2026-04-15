@@ -458,6 +458,8 @@
 :do { add address=2401:f940::/32 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=2401:fc20::/32 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=2401:fd20::/32 list=HK timeout=0 comment=HK } on-error={}
+:do { add address=2401:fd21::/32 list=HK timeout=0 comment=HK } on-error={}
+:do { add address=2401:fd22::/31 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=2401:fe60::/32 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=2402:620::/32 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=2402:720::/32 list=HK timeout=0 comment=HK } on-error={}
@@ -715,7 +717,6 @@
 :do { add address=2407:3d80::/32 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=2407:3fc0::/32 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=2407:4340::/32 list=HK timeout=0 comment=HK } on-error={}
-:do { add address=2407:47c0::/32 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=2407:4e40::/32 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=2407:6080::/32 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=2407:6480::/32 list=HK timeout=0 comment=HK } on-error={}
