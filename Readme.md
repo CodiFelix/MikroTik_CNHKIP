@@ -13,13 +13,13 @@
 
 ### ✅ 方式 1：使用 GitHub Raw（默认）
 
-- 基础地址：`https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/`
+- 基础地址：`https://raw.githubusercontent.com/Codivs-Ctrl/MikroTik_CNHKIP/main/Result/`
 
 ### 🪞 方式 2：使用镜像前缀（raw 访问受限时）
 
 把下面的 `MIRROR_PREFIX` 替换成你可用的镜像前缀（示例：`https://ghproxy.com/` 或你的自建镜像前缀）。
 
-- 镜像前缀：`MIRROR_PREFIX` + `https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/文件名`
+- 镜像前缀：`MIRROR_PREFIX` + `https://raw.githubusercontent.com/Codivs-Ctrl/MikroTik_CNHKIP/main/Result/文件名`
 
 #### 如何判断下载是否成功？
 
@@ -33,7 +33,7 @@
 #### GitHub Raw（默认）
 
 ```routeros
-/tool/fetch url="https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv4_list.rsc" mode=https dst-path=cn_ipv4_list.rsc
+/tool/fetch url="https://raw.githubusercontent.com/Codivs-Ctrl/MikroTik_CNHKIP/main/Result/cn_ipv4_list.rsc" mode=https dst-path=cn_ipv4_list.rsc
 :delay 15s
 /import cn_ipv4_list.rsc
 ```
@@ -42,7 +42,7 @@
 
 ```routeros
 :local MIRROR_PREFIX "https://ghproxy.com/"
-/tool/fetch url=($MIRROR_PREFIX . "https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv4_list.rsc") mode=https dst-path=cn_ipv4_list.rsc
+/tool/fetch url=($MIRROR_PREFIX . "https://raw.githubusercontent.com/Codivs-Ctrl/MikroTik_CNHKIP/main/Result/cn_ipv4_list.rsc") mode=https dst-path=cn_ipv4_list.rsc
 /import cn_ipv4_list.rsc
 ```
 
@@ -52,12 +52,12 @@
 
 ```routeros
 # 下载所有脚本文件
-/tool/fetch url="https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv4_list.rsc" mode=https dst-path=cn_ipv4_list.rsc
-/tool/fetch url="https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv6_list.rsc" mode=https dst-path=cn_ipv6_list.rsc
-/tool/fetch url="https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv4_hk_list.rsc" mode=https dst-path=cn_ipv4_hk_list.rsc
-/tool/fetch url="https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv6_hk_list.rsc" mode=https dst-path=cn_ipv6_hk_list.rsc
-/tool/fetch url="https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv4_route.rsc" mode=https dst-path=cn_ipv4_route.rsc
-/tool/fetch url="https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv4_hk_route.rsc" mode=https dst-path=cn_ipv4_hk_route.rsc
+/tool/fetch url="https://raw.githubusercontent.com/Codivs-Ctrl/MikroTik_CNHKIP/main/Result/cn_ipv4_list.rsc" mode=https dst-path=cn_ipv4_list.rsc
+/tool/fetch url="https://raw.githubusercontent.com/Codivs-Ctrl/MikroTik_CNHKIP/main/Result/cn_ipv6_list.rsc" mode=https dst-path=cn_ipv6_list.rsc
+/tool/fetch url="https://raw.githubusercontent.com/Codivs-Ctrl/MikroTik_CNHKIP/main/Result/cn_ipv4_hk_list.rsc" mode=https dst-path=cn_ipv4_hk_list.rsc
+/tool/fetch url="https://raw.githubusercontent.com/Codivs-Ctrl/MikroTik_CNHKIP/main/Result/cn_ipv6_hk_list.rsc" mode=https dst-path=cn_ipv6_hk_list.rsc
+/tool/fetch url="https://raw.githubusercontent.com/Codivs-Ctrl/MikroTik_CNHKIP/main/Result/cn_ipv4_route.rsc" mode=https dst-path=cn_ipv4_route.rsc
+/tool/fetch url="https://raw.githubusercontent.com/Codivs-Ctrl/MikroTik_CNHKIP/main/Result/cn_ipv4_hk_route.rsc" mode=https dst-path=cn_ipv4_hk_route.rsc
 
 # 等待下载完成后，导入所有脚本
 :delay 15s
@@ -75,12 +75,12 @@
 :local MIRROR_PREFIX "https://ghproxy.com/"
 
 # 下载所有脚本文件（通过镜像前缀）
-/tool/fetch url=($MIRROR_PREFIX . "https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv4_list.rsc") mode=https dst-path=cn_ipv4_list.rsc
-/tool/fetch url=($MIRROR_PREFIX . "https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv6_list.rsc") mode=https dst-path=cn_ipv6_list.rsc
-/tool/fetch url=($MIRROR_PREFIX . "https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv4_hk_list.rsc") mode=https dst-path=cn_ipv4_hk_list.rsc
-/tool/fetch url=($MIRROR_PREFIX . "https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv6_hk_list.rsc") mode=https dst-path=cn_ipv6_hk_list.rsc
-/tool/fetch url=($MIRROR_PREFIX . "https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv4_route.rsc") mode=https dst-path=cn_ipv4_route.rsc
-/tool/fetch url=($MIRROR_PREFIX . "https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv4_hk_route.rsc") mode=https dst-path=cn_ipv4_hk_route.rsc
+/tool/fetch url=($MIRROR_PREFIX . "https://raw.githubusercontent.com/Codivs-Ctrl/MikroTik_CNHKIP/main/Result/cn_ipv4_list.rsc") mode=https dst-path=cn_ipv4_list.rsc
+/tool/fetch url=($MIRROR_PREFIX . "https://raw.githubusercontent.com/Codivs-Ctrl/MikroTik_CNHKIP/main/Result/cn_ipv6_list.rsc") mode=https dst-path=cn_ipv6_list.rsc
+/tool/fetch url=($MIRROR_PREFIX . "https://raw.githubusercontent.com/Codivs-Ctrl/MikroTik_CNHKIP/main/Result/cn_ipv4_hk_list.rsc") mode=https dst-path=cn_ipv4_hk_list.rsc
+/tool/fetch url=($MIRROR_PREFIX . "https://raw.githubusercontent.com/Codivs-Ctrl/MikroTik_CNHKIP/main/Result/cn_ipv6_hk_list.rsc") mode=https dst-path=cn_ipv6_hk_list.rsc
+/tool/fetch url=($MIRROR_PREFIX . "https://raw.githubusercontent.com/Codivs-Ctrl/MikroTik_CNHKIP/main/Result/cn_ipv4_route.rsc") mode=https dst-path=cn_ipv4_route.rsc
+/tool/fetch url=($MIRROR_PREFIX . "https://raw.githubusercontent.com/Codivs-Ctrl/MikroTik_CNHKIP/main/Result/cn_ipv4_hk_route.rsc") mode=https dst-path=cn_ipv4_hk_route.rsc
 
 # 等待下载完成后，导入所有脚本
 :delay 15s
@@ -104,7 +104,7 @@ add name=update-cn-ip-list interval=7d start-date=2026-02-01 start-time=03:00:00
 on-event=":local MIRROR_PREFIX \"https://ghproxy.com/\"
 \
 :local URL (
-$MIRROR_PREFIX . \"https://raw.githubusercontent.com/CodiFelix/MikroTik_CNHKIP/main/Result/cn_ipv4_list.rsc\")
+$MIRROR_PREFIX . \"https://raw.githubusercontent.com/Codivs-Ctrl/MikroTik_CNHKIP/main/Result/cn_ipv4_list.rsc\")
 \
 /tool/fetch url=
 $URL mode=https dst-path=cn_ipv4_list.rsc
@@ -156,7 +156,7 @@ $URL mode=https dst-path=cn_ipv4_list.rsc
 
 ```bash
 # 1. 克隆项目
-git clone https://github.com/CodiFelix/MikroTik_CNHKIP.git
+git clone https://github.com/Codivs-Ctrl/MikroTik_CNHKIP.git
 cd MikroTik_CNHKIP
 
 # 2. 创建结果目录
@@ -318,8 +318,8 @@ A: 使用 `/log print` 查看日志，使用 `/ip firewall address-list print co
 - 分享经验：Star 项目并分享给需要的人
 
 **联系方式**：
-- GitHub Issues: [提交问题](https://github.com/CodiFelix/MikroTik_CNHKIP/issues)
-- Email: Codifelix@FelixBlaze.com
+- GitHub Issues: [提交问题](https://github.com/Codivs-Ctrl/MikroTik_CNHKIP/issues)
+- Email: Zhihong@codivs.com
 
 ---
 
@@ -338,5 +338,5 @@ Copyright (c) 2026 FelixBlaze
 **最后更新**: 2026年4月9日  
 **脚本版本**: 2.0.0  
 **测试环境**: RouterOS v7.13  
-**作者**: CodiFelix  
-**仓库**: https://github.com/CodiFelix/MikroTik_CNHKIP
+**作者**: Codivs-Ctrl  
+**仓库**: https://github.com/Codivs-Ctrl/MikroTik_CNHKIP
