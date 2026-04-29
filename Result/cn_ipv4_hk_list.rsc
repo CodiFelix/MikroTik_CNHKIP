@@ -494,7 +494,6 @@
 :do { add address=103.15.216.0/22 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=103.15.220.0/23 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=103.16.26.0/23 list=HK timeout=0 comment=HK } on-error={}
-:do { add address=103.16.184.0/22 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=103.16.228.0/22 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=103.16.252.0/22 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=103.17.4.0/23 list=HK timeout=0 comment=HK } on-error={}
@@ -1809,6 +1808,7 @@
 :do { add address=160.250.164.0/23 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=160.250.201.0/24 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=161.81.0.0/16 list=HK timeout=0 comment=HK } on-error={}
+:do { add address=162.4.40.0/23 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=162.219.32.0/21 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=162.219.80.0/21 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=162.245.124.0/22 list=HK timeout=0 comment=HK } on-error={}
@@ -1923,6 +1923,7 @@
 :do { add address=192.245.208.0/24 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=193.47.63.0/24 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=194.26.72.0/22 list=HK timeout=0 comment=HK } on-error={}
+:do { add address=195.253.236.0/22 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=198.15.31.0/24 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=198.59.162.0/23 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=199.9.24.0/21 list=HK timeout=0 comment=HK } on-error={}
@@ -2320,10 +2321,8 @@
 :do { add address=202.181.150.0/24 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=202.181.152.0/24 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=202.181.154.0/23 list=HK timeout=0 comment=HK } on-error={}
-:do { add address=202.181.160.0/22 list=HK timeout=0 comment=HK } on-error={}
-:do { add address=202.181.164.0/22 list=HK timeout=0 comment=HK } on-error={}
-:do { add address=202.181.168.0/23 list=HK timeout=0 comment=HK } on-error={}
-:do { add address=202.181.170.0/23 list=HK timeout=0 comment=HK } on-error={}
+:do { add address=202.181.160.0/21 list=HK timeout=0 comment=HK } on-error={}
+:do { add address=202.181.168.0/22 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=202.181.172.0/23 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=202.181.174.0/23 list=HK timeout=0 comment=HK } on-error={}
 :do { add address=202.181.176.0/24 list=HK timeout=0 comment=HK } on-error={}
